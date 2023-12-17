@@ -41,12 +41,14 @@
         <a id="skills">
           <h2>Skills</h2>
         </a>
+        <p>Below is a list of skills I have been developing.</p>
         <p>
-          Below is a list of skills I have developed, and are developing. Click
-          on the skill to go to a more detailed explanation.
+          Click on the skill to go to a more detailed explanation, then click 
+          the plane ( <i class="fa-solid fa-jet-fighter-up"></i> ) to fly back.
         </p>
-        <div id="skills-grid" class="grid"></div>
       </section>
+      <div id="skills-grid" class="grid glow"></div>
+      <section></section>
     </main>
 
     <footer>
@@ -116,7 +118,7 @@
     }
 
     section {
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -145,6 +147,13 @@
       grid-template-columns: repeat(auto-fit, minmax(20vh, 1fr));
       gap: 1rem;
       font-size: large;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .glow {
+      box-shadow: var(--c4) 0 0 2rem;
+      border-radius: 1rem;
     }
 
     .avatar-container {
@@ -250,6 +259,12 @@
       {
         title: "AWS",
         paragraphs: ["The previous product I worked on was hosted on AWS EC2."],
+      },
+      {
+        title: "Azure",
+        paragraphs: [
+          "The current product I am working on utilizes Microsoft Azure for cloud infrastructure.",
+        ],
       },
       {
         id: "dotnet",
@@ -413,6 +428,13 @@
         ],
       },
       {
+        title: "MongoDB",
+        paragraphs: [
+          "I have come across MongoDB in some courses I've done, but I have not used it much.",
+          "However, from what I have seen, it looks pretty straight forward.",
+        ],
+      },
+      {
         title: "Playwright",
         paragraphs: [
           "On a past product I worked on, we used Playwright to write integration tests.",
@@ -444,6 +466,13 @@
           "I am currently working on a product using React for our frontend shell.",
           "I have also used React in a few personal projects.",
           "I am very comfortable using it.",
+        ],
+      },
+      {
+        title: "Redis",
+        paragraphs: [
+          "The product I'm currently working on uses Redis for caching and deistubuting work across multiple instances of the app.",
+          "Mutliple users can connect to the app, and receive live updates accross all connected users.",
         ],
       },
       {
