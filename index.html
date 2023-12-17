@@ -1,118 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/avatar.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d667f366e5.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Johan van Eck</title>
-</head>
-<!-- <link rel="stylesheet" href="main.css"> -->
-<style>
-    /* Default styles for the browser */
-    html {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-decoration: none;
-        background-color: silver;
+  </head>
+
+  <body>
+    <header>
+      <div class="avatar-container shadow">
+        <img style="width: 100%" src="./images/avatar.jpg" alt="" />
+      </div>
+      <div>
+        <h1>Johan van Eck</h1>
+        <h3>Full Stack Engineer</h3>
+        <p class="contact-info"></p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <p class="about"></p>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <div id="skills-grid" class="grid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="contact-info"></p>
+      <p>&copy; <span class="replace-year"></span> Johan van Eck</p>
+    </footer>
+  </body>
+
+  <style>
+    * {
+      --c1: rgb(51, 52, 57);
+      --c2: rgb(114, 118, 119);
+      --c3: rgb(144, 214, 243);
+      --c4: rgb(116, 86, 62);
+      --white: #eee;
+
+      box-sizing: border-box;
+
+      font-family: "Montserrat", sans-serif;
+
+      color: var(--white);
+
+      text-align: center;
+    }
+
+    body {
+      background-color: var(--c1);
+
+      margin: 0;
+      padding: 0;
     }
 
     header {
-        background-color: #444444;
-        color: wheat;
-        width: 100%;
-        height: 100px;
-        border-bottom: solid 1px rgba(16, 16, 16, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      color: var(--white);
+      padding: 20px;
+
+      background: linear-gradient(
+        to top,
+        var(--c1) 50%,
+        var(--c4) 5%,
+        var(--c3)
+      );
     }
 
-    header .inner {
-        width: 80%;
-        height: 100%;
-        display: block;
-        margin: 0 auto;
+    main {
+      padding: 20px;
+      animation: slideInUp 1s ease-in-out;
     }
 
-    header .logo {
-        display: table;
-        height: 100%;
-        float: left;
+    pre {
+      overflow: auto;
     }
 
-    header .logo div {
-        height: 100%;
-        display: table-cell;
-        vertical-align: middle;
+    @media screen and (min-width: 768px) {
+      main {
+        margin-left: 20%;
+        margin-right: 20%;
+      }
     }
 
-    header .logo img {
-        height: 50px;
-        margin-top: 5px;
+    table {
+      margin: 1rem;
     }
 
-    header nav {
-        float: right;
-        height: 100%;
+    section {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    header nav li {
-        display: table;
-        height: 100%;
-        float: left;
-        margin-right: 30px;
+    footer {
+      background-color: var(--c4);
+      padding: 10px;
+      margin: 0;
     }
 
-    header nav li:last-of-type {
-        margin-right: 0;
+    .slide-in-left {
+      animation: slideInLeft 1s ease-in-out;
     }
 
-    header nav span {
-        display: table-cell;
-        vertical-align: middle;
+    .slide-in-up {
+      animation: slideInUp 1s ease-in-out;
     }
 
-    header nav a {
-        color: wheat;
+    .shadow {
+      box-shadow: var(--c1) 0 1rem 1rem;
     }
 
-    header nav .button {
-        background-color: #1ab26b;
-        color: #FFF;
-        padding: 10px 20px;
-        border-radius: 4px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20vh, 1fr));
+      gap: 1rem;
+      font-size: large;
     }
 
-    header nav .button:hover {
-        filter: brightness(1.05);
+    .avatar-container {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      animation: shrink 0.5s;
     }
-</style>
-<!-- <script src="index.js"></script> -->
-<script>
 
-</script>
+    .avatar-container:hover {
+      animation: grow 0.5s;
+      animation-fill-mode: forwards;
+    }
 
+    .avatar-container:hover ~ main {
+      filter: blur(5px);
+    }
 
-<body>
-    <header>
-        <div class="inner">
-            <div class="logo">
-                <div>
-                    <!-- <img src="" alt="No logo"> -->
-                    <h1>Johan <span>van Eck</span></h1>
-                </div>
-            </div>
+    .avatar-img {
+      width: 100%;
+    }
 
-            <nav>
-                <li><span><a href="">About</a></span></li>
-                <li><span><a href="">Skills</a></span></li>
-                <li><span><a href="" class="button">Contact</a></span></li>
-            </nav>
-        </div>
-    </header>
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
-    <div class="main-body">
-        <h1>Under construction...</h1>
-    </div>
-</body>
+    @keyframes slideInUp {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
 
+    @keyframes shake {
+      0% {
+        transform: translateX(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    @keyframes shrink {
+      from {
+        transform: translateY(25vh) scale(2);
+      }
+      to {
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes grow {
+      from {
+        transform: translateY(0) scale(1);
+      }
+      to {
+        transform: translateY(25vh) scale(2);
+      }
+    }
+  </style>
+
+  <script>
+    const yearTags = document.querySelectorAll(".replace-year");
+    yearTags.forEach((tag) => {
+      tag.innerText = new Date().getFullYear();
+    });
+  </script>
+  <script lang="ts">
+    const skills = [
+      {
+        id: "dotnet",
+        title: ".NET",
+        paragraphs: [
+          "I have been working with .NET since 2018.",
+          "It's fun.",
+          "I'm lying, I just had to...",
+        ],
+      },
+      {
+        title: "AWS",
+        paragraphs: [],
+      },
+      {
+        id: "csharp",
+        title: "C#",
+        paragraphs: [],
+      },
+      {
+        title: "CSS",
+        paragraphs: [],
+      },
+      {
+        title: "Capacitor",
+        paragraphs: [],
+      },
+      {
+        title: "Docker",
+        paragraphs: [],
+      },
+      {
+        title: "Gradle",
+        paragraphs: [],
+      },
+      {
+        title: "HTML",
+        paragraphs: [],
+      },
+      {
+        title: "Ionic",
+        paragraphs: [],
+      },
+      {
+        title: "Java",
+        paragraphs: [],
+      },
+      {
+        title: "JavaScript",
+        paragraphs: [],
+      },
+      {
+        title: "Jenkins",
+        paragraphs: [],
+      },
+      {
+        title: "Kotlin",
+        paragraphs: [],
+      },
+      {
+        title: "Linux",
+        paragraphs: [],
+      },
+      {
+        title: "Machine Learning",
+        paragraphs: [],
+      },
+      {
+        title: "Nx",
+        paragraphs: [],
+      },
+      {
+        title: "Playwright",
+        paragraphs: [],
+      },
+      {
+        title: "PostgreSQL",
+        paragraphs: [],
+      },
+      {
+        title: "Python",
+        paragraphs: [],
+      },
+      {
+        title: "ReactJS",
+        paragraphs: [],
+      },
+      {
+        title: "Regex",
+        paragraphs: [],
+      },
+      {
+        title: "Rust",
+        paragraphs: [],
+      },
+      {
+        title: "SolidJS",
+        paragraphs: [],
+      },
+      {
+        title: "Supabase",
+        paragraphs: [],
+      },
+      {
+        title: "Svelte",
+        paragraphs: [],
+      },
+      {
+        title: "SvelteKit",
+        paragraphs: [],
+      },
+      {
+        title: "TailwindCSS",
+        paragraphs: [],
+      },
+      {
+        title: "TypeScript",
+        paragraphs: [],
+      },
+      {
+        title: "Unit testing",
+        paragraphs: [],
+      },
+      {
+        title: "Vim",
+        paragraphs: [],
+      },
+      {
+        title: "VueJS",
+        paragraphs: [],
+      },
+      {
+        title: "Web scraping",
+        paragraphs: [],
+      },
+    ];
+
+    const skillsGrid = document.querySelector("#skills-grid");
+    const main = document.querySelector("main");
+
+    skills.forEach((skill) => {
+      // Add elements to grid
+      const a1 = document.createElement("a");
+      const toId = skill.id ?? skill.title.toLowerCase().replace(/\W/, "");
+      const fromId = toId + "-from";
+      a1.href = `#${toId}`;
+      a1.innerText = skill.title;
+      a1.id = fromId;
+
+      const firstParagraph = skill.paragraphs?.[0];
+      if (firstParagraph) {
+        a1.title = firstParagraph;
+      }
+      skillsGrid.appendChild(a1);
+
+      // Add elements to own sections
+      const section = document.createElement("section");
+      const h2 = document.createElement("h2");
+      h2.innerText = skill.title;
+
+      const a2 = document.createElement("a");
+      a2.href = `#${fromId}`;
+      a2.id = toId;
+      a2.appendChild(h2);
+
+      section.appendChild(a2);
+
+      skill.paragraphs.forEach((paragraph) => {
+        const p = document.createElement("p");
+        p.innerText = paragraph;
+        section.appendChild(p);
+      });
+      main.appendChild(section);
+    });
+  </script>
+  <script>
+    const span = document.createElement("span");
+    span.style.display = "flex";
+    span.style.justifyContent = "center";
+    span.style.gap = "1rem";
+
+    const aGitHub = document.createElement("a");
+    aGitHub.href = "https://github.com/johanvaneck";
+    aGitHub.innerHTML = `<i class="fa-brands fa-github"></i>`;
+    span.appendChild(aGitHub);
+
+    const aLinkedIn = document.createElement("a");
+    aLinkedIn.href = "https://www.linkedin.com/in/johan-van-eck-67909a1b5";
+    aLinkedIn.innerHTML = `<i class="fa-brands fa-linkedin"></i>`;
+    span.appendChild(aLinkedIn);
+
+    const aMail = document.createElement("a");
+    aMail.href = "mailto:jve.software@gmail.com";
+    aMail.innerHTML = `<i class="fa-solid fa-envelope"></i>`;
+    span.appendChild(aMail);
+
+    document.querySelectorAll(".contact-info").forEach((tag) => {
+      tag.appendChild(span.cloneNode(true));
+    });
+  </script>
+  <script>
+    const about = document.querySelector(".about");
+    fetch("./README.md")
+      .then((response) => response.text())
+      .then((text) => {
+        about.innerHTML = text;
+      });
+  </script>
 </html>
