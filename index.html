@@ -43,8 +43,8 @@
         </a>
         <p>Below is a list of skills I have been developing.</p>
         <p>
-          Click on the skill to go to a more detailed explanation, then click 
-          the plane ( <i class="fa-solid fa-jet-fighter-up"></i> ) to fly back.
+          Click on the skill to go to a more detailed explanation, then click
+          the jet ( <i class="fa-solid fa-jet-fighter-up"></i> ) to fly back.
         </p>
       </section>
       <div id="skills-grid" class="grid glow"></div>
@@ -130,6 +130,24 @@
       margin: 0;
     }
 
+    a {
+      transition: all var(--t-time) ease-in-out;
+    }
+
+    a:hover {
+      color: var(--c3);
+    }
+
+    section:has(a:target) {
+      animation: shake var(--t-time) ease-in-out;
+      /* box-shadow: var(--c2) 0 0 2rem;
+      border-radius: 1rem; */
+    }
+
+    .shake:hover {
+      animation: shake var(--t-time) ease-in-out;
+    }
+
     .slide-in-left {
       animation: slideInLeft var(--t-time) ease-in-out;
     }
@@ -166,11 +184,14 @@
       overflow: hidden;
 
       animation: shrink var(--t-time);
+      /* transition: all var(--t-time) ease-in-out;
+      transform: translateY(0) scale(1); */
     }
 
     .avatar-container:hover {
       animation: grow var(--t-time);
       animation-fill-mode: forwards;
+      /* transform: translateY(25vh) scale(2); */
     }
 
     .avatar-container:hover ~ main {
@@ -238,6 +259,7 @@
         transform: translateY(0) scale(1);
       }
     }
+
     @keyframes grow {
       from {
         transform: translateY(0) scale(1);
@@ -633,19 +655,14 @@
         section.appendChild(p);
       });
 
-      const aBackToSkills = document.createElement("a");
-      aBackToSkills.href = "#skills";
-      aBackToSkills.innerHTML = `<i class="fa-solid fa-jet-fighter-up"></i>`;
+      const aJet = document.createElement("a");
+      aJet.href = "#skills";
+      aJet.title = "Back to skills";
+      aJet.innerHTML = `<i class="fa-solid fa-jet-fighter-up"></i>`;
+      aJet.style.margin = "1rem";
+      aJet.classList.add("shake");
 
-      const span = document.createElement("span");
-      span.innerHTML = "Back to skills";
-      span.style.marginLeft = "1rem";
-      span.classList.add("show-on-hover");
-
-      aBackToSkills.appendChild(span);
-      aBackToSkills.style.margin = "1rem";
-
-      section.appendChild(aBackToSkills);
+      section.appendChild(aJet);
       main.appendChild(section);
     });
   </script>
