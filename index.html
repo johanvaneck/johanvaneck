@@ -56,6 +56,8 @@
       --c4: rgb(116, 86, 62);
       --white: #eee;
 
+      --t-time: 1s;
+
       box-sizing: border-box;
 
       font-family: "Montserrat", sans-serif;
@@ -92,7 +94,7 @@
 
     main {
       padding: 20px;
-      animation: slideInUp 1s ease-in-out;
+      animation: slideInUp var(--t-time) ease-in-out;
     }
 
     pre {
@@ -124,11 +126,11 @@
     }
 
     .slide-in-left {
-      animation: slideInLeft 1s ease-in-out;
+      animation: slideInLeft var(--t-time) ease-in-out;
     }
 
     .slide-in-up {
-      animation: slideInUp 1s ease-in-out;
+      animation: slideInUp var(--t-time) ease-in-out;
     }
 
     .shadow {
@@ -151,11 +153,11 @@
       align-items: center;
       overflow: hidden;
 
-      animation: shrink 0.5s;
+      animation: shrink var(--t-time);
     }
 
     .avatar-container:hover {
-      animation: grow 0.5s;
+      animation: grow var(--t-time);
       animation-fill-mode: forwards;
     }
 
