@@ -139,13 +139,13 @@
     }
 
     section:has(a:target) {
-      animation: shake var(--t-time) ease-in-out;
+      animation: bounce var(--t-time) ease-in-out;
       /* box-shadow: var(--c2) 0 0 2rem;
       border-radius: 1rem; */
     }
 
-    .shake:hover {
-      animation: shake var(--t-time) ease-in-out;
+    .bounce:hover {
+      animation: bounce var(--t-time) ease-in-out;
     }
 
     .slide-in-left {
@@ -218,7 +218,7 @@
       }
     }
 
-    @keyframes shake {
+    @keyframes bounce {
       0% {
         transform: translateX(0px);
       }
@@ -639,7 +639,7 @@
       aJet.title = "Back to skills";
       aJet.innerHTML = `<i class="fa-solid fa-jet-fighter-up"></i>`;
       aJet.style.margin = "1rem";
-      aJet.classList.add("shake");
+      aJet.classList.add("bounce");
 
       section.appendChild(aJet);
       main.appendChild(section);
